@@ -1,0 +1,66 @@
+{
+  "links": {
+    "about": "About",
+    "business": "Business",
+    "news": "News",
+    "contact": "Contact Us"
+  },
+  "main": {
+    "title": "Pro Top International Co. Ltd.",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. Nam elit tortor, dignissim eu porta eu, tincidunt id erat. Vestibulum a orci ligula. Nullam volutpat blandit vehicula.",
+    "about": {
+      "title": "About Us",
+      "text1": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris.",
+      "text2": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "Nulla mollis libero sit amet quam lacinia, ut consectetur odio semper. Suspendisse nec velit ut magna venenatis fermentum non vitae libero. Nam tincidunt, dolor et ultrices aliquet, dolor turpis porta ante, ut dictum massa enim ac magna."
+    }
+  },
+  "business": {
+    "title": "Business",
+    "intro": "small blurb, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. etc",
+    "instyler": {
+      "text1": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris.",
+      "text2": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    },
+    "bananabros": {
+      "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. Nam elit tortor, dignissim eu porta eu, tincidunt id erat. Vestibulum a orci ligula. Nullam volutpat blandit vehicula.",
+      "text2": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "dongGuan": {
+      "title": "Dong guan Office",
+      "address1": "Unit 302 3/F, Sanxing Building",
+      "address2": "Guangchang Road, Zhang Mu Tou Town",
+      "address3": "Dongguan City",
+      "address4": "People's Republic of China",
+      "address5": "Postal Code 523622"
+    },
+    "hongKong": {
+      "title": "Hong Kong Office",
+      "address1": "Unit 9 4/F, Sui Ying Industrial Building",
+      "address2": "No. 1 Yuk Yat Street, To Kwa Wan",
+      "address3": "Kowloon",
+      "address4": "Hong Kong",
+      "fax": "(fax)"
+    },
+    "inquire": {
+      "title": "Inquire Now",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Submit",
+      "success": "Your message has been sent successfully!",
+      "error": "There was an error sending your message. Please try again later."
+    }
+  },
+  "404": {
+    "title": "501 Not Implemented",
+    "message": "Sorry, page doesn't exist yet! Please come back another time."
+  }
+}

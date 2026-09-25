@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:root {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: "AFACAD FLUX", Calibri, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-rows: 0 1fr auto;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  padding-bottom: 10rem;
+}
+
+.centre {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  margin: 2rem 0;
+}
+
+.pad {
+  padding: 5rem 0;
+}
+
+.padding {
+  margin: 0 auto;
+  width: 70%;
+  max-width: 1100px;
+}
+
+.textcontent {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inlineImg {
+  display: flex;
+  align-self: center;
+  margin-top: 4rem;
+  width: 70%;
+  max-width: 1100px;
+}
+
+.about {
+  margin-bottom: 10rem;
+}
+
+.crop {
+  width: 100%;
+  max-height: 500px;
+  height: calc(15vh + 10vw);
+  min-height: 200px;
+
+}
+
+.crop img {
+  object-fit: cover;
+  margin-bottom: -4px;
+}
+
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 700px) {
+  .padding {
+    width: 86%;
+  }
+
+  .textcontent {
+    font-size: 1.2rem;
+  }
+
+  .inlineImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {}

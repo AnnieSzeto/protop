@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Protop International | About</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="protopintl.com" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Protop International Co. Ltd. is a leading company in the industry, providing top-notch services and products."
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://placehold.co/600x600/a91111/white/webp?text=PTI"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./head_foot.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <script type="text/javascript" src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <header id="h_bar" class="sticky">
+      <a href="./" class="h_logo">
+        <img
+          src="https://placehold.co/600x600/transparent/white?text=PTI"
+          alt="Protop logo"
+        />
+      </a>
+      <div class="h_options">
+        <div class="lang_selector">
+          <img src="images\language.svg" />
+          <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh">中文 (简体)</option>
+            <option value="hk">中文 (繁體)</option>
+          </select>
+        </div>
+        <nav class="nav" id="collapsable">
+          <a id="hamburger" onclick="dropDown()">&#9776;</a>
+          <a href="./" class="h_underline" data-i18n="links.about">About</a>
+          <a href="./business.html" data-i18n="links.business">Business</a>
+          <a href="./501.html" data-i18n="links.news">News</a>
+          <a href="./contact.html" data-i18n="links.contact">Contact Us</a>
+        </nav>
+      </div>
+      <div id="darker"></div>
+    </header>
+    <div>
+      <div id="nav_container" tabindex="0" onblur="handleBlur(this)">
+        <nav id="hidden_nav">
+          <button class="h_nav_close" onclick="closeNav(this)">
+            <svg
+              fill="#ffffff"
+              height="1.5rem"
+              width="1.5rem"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 490 490"
+              xml:space="preserve"
+              stroke="#ffffff"
+            >
+              <polygon
+                points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "
+              ></polygon>
+            </svg>
+          </button>
+          <div class="h_nav_gap"></div>
+          <a data-i18n="links.about" href="./">About</a>
+          <a data-i18n="links.business" href="./business.html">Business</a>
+          <a data-i18n="links.news" href="./501.html">News</a>
+          <a data-i18n="links.contact" href="./contact.html">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+    <main>
+      <div class="crop">
+        <img
+          srcset="
+            https://placehold.co/900x300?text=9x3+Site+Under+Contruction    700w,
+            https://placehold.co/1200x400?text=12x4+Site+Under+Contruction 1000w
+          "
+          sizes="(max-width:800px) 700px, 1000px"
+          src="https://placehold.co/1200x400?text=Site+Under+Contruction"
+        />
+      </div>
+      <div class="centre">
+        <div class="content">
+          <div class="textcontent about">
+            <div class="padding">
+              <!-- <div class="a_logo">
+                <img src="https:placehold.co/600x600/a91111/white?text=PTI" />
+              </div> -->
+              <h1 data-i18n="main.title">Pro Top International Co. Ltd.</h1>
+              <p data-i18n="main.intro">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                gravida placerat mauris, vitae auctor quam dapibus a. Nam elit
+                tortor, dignissim eu porta eu, tincidunt id erat. Vestibulum a
+                orci ligula. Nullam volutpat blandit vehicula.
+              </p>
+            </div>
+            <div class="inlineImg">
+              <img
+                src="https://placehold.co/600x400?text=Site+Under+Contruction"
+              />
+            </div>
+          </div>
+          <div class="textcontent about">
+            <div class="padding">
+              <h2 data-i18n="main.about.title">About Us</h2>
+              <p data-i18n="main.about.text1">
+                Praesent purus elit, hendrerit vel purus eu, pulvinar mollis
+                felis. Proin ante risus, volutpat a arcu quis, laoreet semper
+                ex. Aenean lacinia sem tortor, id interdum leo sollicitudin
+                imperdiet. Nulla quis tortor mauris.
+              </p>
+
+              <p data-i18n="main.about.text2">
+                Class aptent taciti sociosqu ad litora torquent per conubia
+                nostra, per inceptos himenaeos.
+              </p>
+            </div>
+          </div>
+          <div class="textcontent about">
+            <div class="padding">
+              <h2 data-i18n="main.vision.title">Our Vision</h2>
+              <p data-i18n="main.vision.text">
+                Nulla mollis libero sit amet quam lacinia, ut consectetur odio
+                semper. Suspendisse nec velit ut magna venenatis fermentum non
+                vitae libero. Nam tincidunt, dolor et ultrices aliquet, dolor
+                turpis porta ante, ut dictum massa enim ac magna.
+              </p>
+            </div>
+            <div class="inlineImg">
+              <img
+                src="https://placehold.co/600x400?text=Site+Under+Contruction"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="f_proTop">
+        <div class="f_logo">
+          <img
+            src="https://placehold.co/600x600/a81111/white?text=PTI"
+            alt="Protop logo"
+          />
+        </div>
+        <div>
+          <p>Pro Top</p>
+          <p>International Co. Ltd</p>
+        </div>
+      </div>
+      <div class="f_links">
+        <div>
+          <a class="bold" data-i18n="links.about" href="./">About</a>
+          <a data-i18n="links.contact" href="./contact.html">Contact Us</a>
+        </div>
+        <div>
+          <a class="bold" data-i18n="links.business" href="./business.html"
+            >Business</a
+          >
+        </div>
+        <div>
+          <a class="bold" data-i18n="links.news" href="./501.html">News</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

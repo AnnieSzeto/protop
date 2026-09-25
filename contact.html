@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Protop International | Contact Us</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="protopintl.com" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://placehold.co/400x400/a91111/white/webp?text=PTI"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./head_foot.css" />
+    <link rel="stylesheet" href="./contact.css" />
+    <script type="text/javascript" src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <header id="h_bar" class="sticky">
+      <a href="./" class="h_logo">
+        <img
+          src="https://placehold.co/600x600/transparent/white?text=PTI"
+          alt="Protop logo"
+        />
+      </a>
+      <div class="h_options">
+        <div class="lang_selector">
+          <img src="images\language.svg" />
+          <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh">中文 (简体)</option>
+            <option value="hk">中文 (繁體)</option>
+          </select>
+        </div>
+        <nav class="nav" id="collapsable">
+          <a id="hamburger" onclick="dropDown()">&#9776;</a>
+          <a data-i18n="links.about" href="./">About</a>
+          <a data-i18n="links.business" href="./business.html">Business</a>
+          <a data-i18n="links.news" href="./501.html">News</a>
+          <a data-i18n="links.contact" href="./contact.html" class="h_underline"
+            >Contact Us</a
+          >
+        </nav>
+      </div>
+      <div id="darker"></div>
+    </header>
+    <div>
+      <div id="nav_container" tabindex="0" onblur="handleBlur(this)">
+        <nav id="hidden_nav">
+          <button class="h_nav_close" onclick="closeNav(this)">
+            <svg
+              fill="#ffffff"
+              height="1.5rem"
+              width="1.5rem"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 490 490"
+              xml:space="preserve"
+              stroke="#ffffff"
+            >
+              <polygon
+                points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "
+              ></polygon>
+            </svg>
+          </button>
+          <div class="h_nav_gap"></div>
+          <a data-i18n="links.about" href="./">About</a>
+          <a data-i18n="links.business" href="./business.html">Business</a>
+          <a data-i18n="links.news" href="./501.html">News</a>
+          <a data-i18n="links.contact" href="./contact.html">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+    <main>
+      <div class="crop">
+        <img
+          srcset="
+            https://placehold.co/900x300?text=Site+Under+Contruction   700w,
+            https://placehold.co/1200x400?text=Site+Under+Contruction 1000w
+          "
+          sizes="(max-width:800px) 700px, 1000px"
+          src="https://placehold.co/1200x400?text=Site+Under+Contruction"
+        />
+      </div>
+      <div class="padding textcontent">
+        <h1 data-i18n="contact.title">Contact Us</h1>
+        <div class="locations">
+          <div class="l_card">
+            <div class="l_img">
+              <img
+                src="https://placehold.co/600x400?text=Site+Under+\n+Contruction"
+              />
+            </div>
+            <div class="address">
+              <h2 data-i18n="contact.dongGuan.title">Dong Guan Office</h2>
+              <p>
+                <img class="inline_icon" src="images/text_icons/pin.png" /><span
+                  data-i18n="contact.dongGuan.address1"
+                  >Unit 302 3/F, Sanxing Building</span
+                >
+              </p>
+              <p class="c_tab" data-i18n="contact.dongGuan.address2">
+                Guangchang Road, Zhang Mu Tou Town
+              </p>
+              <p class="c_tab" data-i18n="contact.dongGuan.address3">
+                DongGuan City
+              </p>
+              <p class="c_tab" data-i18n="contact.dongGuan.address4">
+                People's Republic of China
+              </p>
+              <p class="c_tab" data-i18n="contact.dongGuan.address5">
+                Postal Code 523622
+              </p>
+              <p>
+                <img
+                  class="inline_icon"
+                  src="images/text_icons/email.png"
+                /><span>may@protopintl.com</span>
+              </p>
+              <p>
+                <img
+                  class="inline_icon"
+                  src="images/text_icons/phone.png"
+                /><span>+136 8626 7843</span>
+              </p>
+            </div>
+          </div>
+          <div class="l_card">
+            <div class="l_img">
+              <img
+                src="https://placehold.co/600x400?text=Site+Under+\n+Contruction"
+              />
+            </div>
+            <div class="address">
+              <h2 data-i18n="contact.hongKong.title">Hong Kong Office</h2>
+              <p>
+                <img class="inline_icon" src="images/text_icons/pin.png" /><span
+                  data-i18n="contact.hongKong.address1"
+                  >Unit 9 4/F, Sui Ying Industrial Building</span
+                >
+              </p>
+              <p class="c_tab" data-i18n="contact.hongKong.address2">
+                No. 1 Yuk Yat Street, To Kwa Wan
+              </p>
+              <p class="c_tab" data-i18n="contact.hongKong.address3">Kowloon</p>
+              <p class="c_tab" data-i18n="contact.hongKong.address4">
+                Hong Kong
+              </p>
+              <p>
+                <img
+                  class="inline_icon"
+                  src="images/text_icons/email.png"
+                /><span data-i18n="contact.hongKong.email"
+                  >randy@protopintl.com</span
+                >
+              </p>
+              <p>
+                <img
+                  class="inline_icon"
+                  src="images/text_icons/phone.png"
+                /><span>+852 2688-0083</span>
+              </p>
+              <p>
+                <img class="inline_icon" src="images/text_icons/fax.png" />+852
+                2688-0031 <span data-i18n="contact.hongKong.fax">(fax)</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div class="padding">
+          <h2 data-i18n="contact.inquire.title">Inquire Now</h2>
+          <form id="contactForm">
+            <p data-i18n="contact.inquire.name">
+              <label for="name">Name:</label>
+            </p>
+            <input type="text" id="name" name="name" required />
+            <br />
+
+            <p data-i18n="contact.inquire.email">
+              <label for="email">Email Address:</label>
+            </p>
+            <input type="email" id="email" name="email" required />
+            <br />
+
+            <p data-i18n="contact.inquire.message">
+              <label for="message">Message:</label>
+            </p>
+            <textarea id="message" name="message" required></textarea>
+            <br />
+
+            <div id="f_submit">
+              <button type="submit" data-i18n="contact.inquire.submit">
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="f_proTop">
+        <div class="f_logo">
+          <img
+            src="https://placehold.co/600x600/a81111/white?text=PTI"
+            alt="Protop logo"
+          />
+        </div>
+        <div>
+          <p>Pro Top</p>
+          <p>International Co. Ltd</p>
+        </div>
+      </div>
+      <div class="f_links">
+        <div>
+          <a class="bold" data-i18n="links.about" href="./">About</a>
+          <a data-i18n="links.contact" href="./contact.html">Contact Us</a>
+        </div>
+        <div>
+          <a class="bold" data-i18n="links.business" href="./business.html"
+            >Business</a
+          >
+        </div>
+        <div>
+          <a class="bold" data-i18n="links.news" href="./501.html">News</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

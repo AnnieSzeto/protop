@@ -1,0 +1,24 @@
+.b_projects {
+    background-color: #e7e7e7;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.b_project {
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.bp_logo {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+    >img {
+        width: 20rem;
+    }
+}
