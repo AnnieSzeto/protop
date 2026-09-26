@@ -11,10 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 6px var(--shadow);
-  transition:
-    background-color 0.3s,
-    transform 0.25s ease-in-out;
-  will-change: transform;
+  transition: background-color 0.3s;
 }
 
 .sticky {
@@ -39,10 +36,6 @@ header {
 
   &.isSticky::before {
     backdrop-filter: blur(3px);
-  }
-
-  &.h_hidden {
-    transform: translateY(-125%);
   }
 }
 

@@ -86,14 +86,17 @@ h1 {
 .crop {
   position: relative;
   width: 100%;
-  max-height: 500px;
-  height: calc(15vh + 10vw);
-  min-height: 200px;
 }
 
+.crop picture {
+  display: block;
+}
+
+/* natural aspect ratio: the image sets the banner's height */
 .crop img {
-  object-fit: cover;
-  margin-bottom: -4px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .banner_text {
@@ -104,7 +107,8 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  padding: 0 1rem;
+  /* keep clear of the fixed header */
+  padding: 3.5rem 1rem 0;
   text-align: center;
   color: var(--white);
   background: linear-gradient(

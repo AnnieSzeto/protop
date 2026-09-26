@@ -8,12 +8,33 @@ const { title, subtitle } = Astro.props;
 ---
 
 <div class="crop">
-  <img
-    srcset="/images/peakpx700.jpg 900w, /images/peakpx.jpg 1920w"
-    sizes="100vw"
-    src="/images/peakpx.jpg"
-    alt=""
-  />
+  <!-- the banner takes each image's own shape; narrower screens get a less wide crop -->
+  <picture>
+    <source
+      media="(max-width: 600px)"
+      type="image/webp"
+      srcset="/images/banner-sm-500.webp 500w, /images/banner-sm-1000.webp 1000w"
+      sizes="100vw"
+      width="1000"
+      height="769"
+    />
+    <source
+      media="(max-width: 1000px)"
+      type="image/webp"
+      srcset="/images/banner-md-900.webp 900w, /images/banner-md-1800.webp 1800w"
+      sizes="100vw"
+      width="1800"
+      height="1000"
+    />
+    <img
+      srcset="/images/banner-lg-1920.webp 1920w, /images/banner-lg-3840.webp 3840w"
+      sizes="100vw"
+      src="/images/banner-lg-1920.webp"
+      width="1920"
+      height="680"
+      alt=""
+    />
+  </picture>
   {(title || subtitle) && (
     <div class="banner_text">
       {title && <h1>{title}</h1>}

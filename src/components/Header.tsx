@@ -17,7 +17,6 @@ interface Props {
 
 export default function Header({ lang, links, current, path }: Props) {
   const [isSticky, setIsSticky] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [indicator, setIndicator] = useState<{ left: number; width: number } | null>(null);
   // Only animate the bar after its first placement, so it doesn't slide in on page load.
@@ -44,25 +43,9 @@ export default function Header({ lang, links, current, path }: Props) {
   // Close the mobile menu after navigating.
   useEffect(() => setNavOpen(false), [current, lang]);
 
-  // Hide the header while scrolling down, show it again on scroll up.
   useEffect(() => {
-    let lastY = window.scrollY;
-    let ticking = false;
-    const update = () => {
-      const y = window.scrollY;
-      const height = headerRef.current?.offsetHeight ?? 0;
-      setIsSticky(y > 20);
-      setHidden(y > height && y > lastY);
-      lastY = y;
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    };
-    update();
+    const onScroll = () => setIsSticky(window.scrollY > 20);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -87,13 +70,9 @@ export default function Header({ lang, links, current, path }: Props) {
     navigate(localizePath(path, next));
   };
 
-  const classes = ['sticky', isSticky && 'isSticky', hidden && !navOpen && 'h_hidden']
-    .filter(Boolean)
-    .join(' ');
-
   return (
     <div ref={headerRef} className="h_wrapper">
-      <header id="h_bar" className={classes}>
+      <header id="h_bar" className={isSticky ? 'sticky isSticky' : 'sticky'}>
         <a href={localizePath('/', lang)} className="h_logo">
           <img src="https://placehold.co/600x600/transparent/white?text=PTI" alt="Protop logo" />
         </a>
