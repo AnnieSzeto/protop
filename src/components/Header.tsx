@@ -1,3 +1,4 @@
+import { Languages, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 import type { Lang, Translations } from '../i18n';
@@ -45,7 +46,7 @@ export default function Header({ lang, links, current, path }: Props) {
         </a>
         <div className="h_options">
           <div className="lang_selector">
-            <img src="/images/language.svg" alt="" />
+            <Languages size={24} aria-hidden="true" />
             <select
               id="language-select"
               aria-label="Language"
@@ -61,7 +62,7 @@ export default function Header({ lang, links, current, path }: Props) {
           </div>
           <nav className="nav">
             <a id="hamburger" role="button" aria-label="Menu" onClick={() => setNavOpen(true)}>
-              &#9776;
+              <Menu size={28} aria-hidden="true" />
             </a>
             {navLinks.map(({ key, path: p }) => (
               <a
@@ -86,15 +87,7 @@ export default function Header({ lang, links, current, path }: Props) {
         >
           <nav id="hidden_nav">
             <button className="h_nav_close" aria-label="Close" onClick={() => setNavOpen(false)}>
-              <svg
-                fill="#ffffff"
-                height="1.5rem"
-                width="1.5rem"
-                viewBox="0 0 490 490"
-                stroke="#ffffff"
-              >
-                <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 " />
-              </svg>
+              <X size={24} color="#ffffff" aria-hidden="true" />
             </button>
             <div className="h_nav_gap"></div>
             {navLinks.map(({ key, path: p }) => (

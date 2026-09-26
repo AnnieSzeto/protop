@@ -1,6 +1,8 @@
 ---
 import '../../styles/contact.css';
 
+import { Mail, MapPin, Phone, Printer } from 'lucide-react';
+
 import Banner from '../../components/Banner.astro';
 import ContactForm from '../../components/ContactForm';
 import { getLangStaticPaths, langFromParam, useTranslations } from '../../i18n';
@@ -10,66 +12,52 @@ export const getStaticPaths = getLangStaticPaths;
 
 const lang = langFromParam(Astro.params.lang);
 const t = useTranslations(lang).contact;
+
+const offices = [
+  { ...t.hongKong, email: 'randy@protopintl.com', phone: '+852 2688 7782', fax: '+852 2688 0031' },
+  { ...t.dongGuan, email: 'may@protopintl.com', phone: '+86 136 8626 7843', fax: undefined },
+];
+const tel = (n: string) => 'tel:' + n.replace(/\s/g, '');
 ---
 
 <Layout lang={lang} title="Protop International | Contact Us" current="contact">
   <main>
-    <Banner />
+    <Banner title={t.title} />
     <div class="padding textcontent">
-      <h1>{t.title}</h1>
       <div class="locations">
-        <div class="l_card">
-          <div class="l_img">
-            <img src="https://placehold.co/600x400?text=Site+Under+\n+Contruction" alt="" />
+        {offices.map((o) => (
+          <div class="l_card">
+            <div class="l_img">
+              <img src="https://placehold.co/600x400?text=Site+Under+\n+Contruction" alt="" />
+            </div>
+            <div class="address">
+              <h2>{o.title}</h2>
+              <p>
+                <MapPin className="inline_icon" aria-hidden="true" />
+                <span>{o.address[0]}</span>
+              </p>
+              {o.address.slice(1).map((line) => (
+                <p class="c_tab">{line}</p>
+              ))}
+              <p>
+                <Mail className="inline_icon" aria-hidden="true" />
+                <a href={`mailto:${o.email}`}>{o.email}</a>
+              </p>
+              <p>
+                <Phone className="inline_icon" aria-hidden="true" />
+                <a href={tel(o.phone)}>{o.phone}</a>
+              </p>
+              {o.fax && (
+                <p>
+                  <Printer className="inline_icon" aria-hidden="true" />
+                  <span>
+                    {o.fax} {t.fax}
+                  </span>
+                </p>
+              )}
+            </div>
           </div>
-          <div class="address">
-            <h2>{t.dongGuan.title}</h2>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/pin.png" alt="" />
-              <span>{t.dongGuan.address1}</span>
-            </p>
-            <p class="c_tab">{t.dongGuan.address2}</p>
-            <p class="c_tab">{t.dongGuan.address3}</p>
-            <p class="c_tab">{t.dongGuan.address4}</p>
-            <p class="c_tab">{t.dongGuan.address5}</p>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/email.png" alt="" />
-              <span>may@protopintl.com</span>
-            </p>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/phone.png" alt="" />
-              <span>+136 8626 7843</span>
-            </p>
-          </div>
-        </div>
-        <div class="l_card">
-          <div class="l_img">
-            <img src="https://placehold.co/600x400?text=Site+Under+\n+Contruction" alt="" />
-          </div>
-          <div class="address">
-            <h2>{t.hongKong.title}</h2>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/pin.png" alt="" />
-              <span>{t.hongKong.address1}</span>
-            </p>
-            <p class="c_tab">{t.hongKong.address2}</p>
-            <p class="c_tab">{t.hongKong.address3}</p>
-            <p class="c_tab">{t.hongKong.address4}</p>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/email.png" alt="" />
-              <span>randy@protopintl.com</span>
-            </p>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/phone.png" alt="" />
-              <span>+852 2688-0083</span>
-            </p>
-            <p>
-              <img class="inline_icon" src="/images/text_icons/fax.png" alt="" />
-              +852 2688-0031
-              <span>{t.hongKong.fax}</span>
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
     <div class="form">

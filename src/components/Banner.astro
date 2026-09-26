@@ -1,11 +1,23 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
 <div class="crop">
   <img
-    srcset="
-      https://placehold.co/900x300?text=Site+Under+Contruction   700w,
-      https://placehold.co/1200x400?text=Site+Under+Contruction 1000w
-    "
-    sizes="(max-width:800px) 700px, 1000px"
-    src="https://placehold.co/1200x400?text=Site+Under+Contruction"
+    srcset="/images/peakpx700.jpg 900w, /images/peakpx.jpg 1920w"
+    sizes="100vw"
+    src="/images/peakpx.jpg"
     alt=""
   />
+  {(title || subtitle) && (
+    <div class="banner_text">
+      {title && <h1>{title}</h1>}
+      {subtitle && <p>{subtitle}</p>}
+    </div>
+  )}
 </div>

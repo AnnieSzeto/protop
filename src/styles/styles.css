@@ -9,6 +9,9 @@
 
 :root {
   scroll-behavior: smooth;
+  --burgundy: #a91111;
+  --burgundy-light: #fcd8d8;
+  --grey-bg: #f8f8f8;
 }
 
 body {
@@ -61,19 +64,8 @@ h1 {
   flex-direction: column;
 }
 
-.inlineImg {
-  display: flex;
-  align-self: center;
-  margin-top: 4rem;
-  width: 70%;
-  max-width: 1100px;
-}
-
-.about {
-  margin-bottom: 10rem;
-}
-
 .crop {
+  position: relative;
   width: 100%;
   max-height: 500px;
   height: calc(15vh + 10vw);
@@ -83,6 +75,62 @@ h1 {
 .crop img {
   object-fit: cover;
   margin-bottom: -4px;
+}
+
+.banner_text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(0deg, #a9111166 0%, #00000033 100%);
+
+  > h1 {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  > p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+  }
+}
+
+h2 {
+  color: var(--burgundy);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.textcontent p + p {
+  margin-top: 1rem;
+}
+
+.icon {
+  color: var(--burgundy);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  background-color: var(--burgundy);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: all 0.2s linear;
+}
+
+.button:hover {
+  background-color: #c93131;
 }
 
 @media (max-width: 1000px) {
@@ -95,10 +143,6 @@ h1 {
 
   .textcontent {
     font-size: 1.2rem;
-  }
-
-  .inlineImg {
-    width: 100%;
   }
 }
 

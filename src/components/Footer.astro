@@ -1,6 +1,7 @@
 ---
 import type { Lang, Translations } from '../i18n';
 import { localizePath } from '../i18n';
+import { navLinks } from './links';
 
 interface Props {
   lang: Lang;
@@ -22,20 +23,13 @@ const { lang, links } = Astro.props;
   </div>
   <div class="f_links">
     <div>
-      <a class="bold" href={localizePath('/', lang)}>
-        {links.about}
-      </a>
-      <a href={localizePath('/contact', lang)}>{links.contact}</a>
+      {navLinks.map(({ key, path }) => (
+        <a href={localizePath(path, lang)}>{links[key]}</a>
+      ))}
     </div>
     <div>
-      <a class="bold" href={localizePath('/business', lang)}>
-        {links.business}
-      </a>
-    </div>
-    <div>
-      <a class="bold" href={localizePath('/news', lang)}>
-        {links.news}
-      </a>
+      <a href="mailto:randy@protopintl.com">randy@protopintl.com</a>
+      <a href="mailto:may@protopintl.com">may@protopintl.com</a>
     </div>
   </div>
 </footer>

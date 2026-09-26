@@ -71,7 +71,7 @@ select,
   margin: 0 1.2rem;
 }
 
-.lang_selector > img {
+.lang_selector > svg {
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -228,7 +228,7 @@ footer {
 .f_links {
   width: 60%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1rem 2rem;
   margin: 0 0rem 3rem 5rem;
 }
@@ -240,6 +240,7 @@ footer {
 
 .f_links > div > a {
   text-decoration: none;
+  line-height: 1.6;
   color: rgb(80, 80, 80);
   font-size: 1.5rem;
 }

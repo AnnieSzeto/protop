@@ -1,0 +1,60 @@
+---
+import '../../styles/products.css';
+
+import { Fan, Scissors, Wind } from 'lucide-react';
+
+import Banner from '../../components/Banner.astro';
+import { getLangStaticPaths, langFromParam, useTranslations } from '../../i18n';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = getLangStaticPaths;
+
+const lang = langFromParam(Astro.params.lang);
+const t = useTranslations(lang).products;
+const categoryIcons = [Wind, Scissors, Fan];
+const brands = [
+  { name: 'Instyler', logo: '/images/in_logo.avif' },
+  { name: 'Flower' },
+  { name: 'PackedParty' },
+  { name: 'Makegina' },
+];
+---
+
+<Layout lang={lang} title="Protop International | Products" current="products">
+  <main>
+    <Banner title={t.title} />
+    <section class="padding textcontent">
+      <p>{t.intro}</p>
+      <ul class="categories">
+        {t.categories.map((c, i) => {
+          const Icon = categoryIcons[i];
+          return (
+            <li>
+              <Icon className="icon" size={40} strokeWidth={1.5} aria-hidden="true" />
+              <h3>{c.title}</h3>
+              <ul>
+                {c.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+      <div class="feature">
+        <img src="/images/INSTYLER_TURBO.png" alt="Instyler Turbo" />
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="padding">
+        <h2>{t.brands.title}</h2>
+        <ul>
+          {brands.map((b) => (
+            <li>{b.logo ? <img src={b.logo} alt={b.name} /> : <span>{b.name}</span>}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -39,9 +39,21 @@
   margin-bottom: 0.5rem;
 }
 
+.address a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.address a:hover {
+  color: var(--burgundy);
+}
+
 .inline_icon {
+  flex-shrink: 0;
   width: 1.3rem;
+  height: 1.3rem;
   margin-right: 1rem;
+  color: var(--burgundy);
 }
 
 .c_tab {
@@ -79,7 +91,7 @@ textarea {
   > button {
     width: 7rem;
     height: 2.5rem;
-    background-color: #a91111;
+    background-color: var(--burgundy);
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
@@ -119,10 +131,4 @@ textarea {
   .l_img {
     height: calc(20vh + 10vw);
   }
-}
-
-@media (max-width: 700px) {
-}
-
-@media (max-width: 500px) {
 }

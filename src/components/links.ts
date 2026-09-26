@@ -1,7 +1,6 @@
 export const navLinks = [
   { key: 'about', path: '/' },
-  { key: 'business', path: '/business' },
-  { key: 'news', path: '/news' },
+  { key: 'products', path: '/products' },
   { key: 'contact', path: '/contact' },
 ] as const;
 

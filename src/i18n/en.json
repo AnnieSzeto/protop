@@ -1,53 +1,100 @@
 {
   "links": {
     "about": "About",
-    "business": "Business",
-    "news": "News",
+    "products": "Products",
     "contact": "Contact Us"
   },
+  "company": "Pro Top International Co. Ltd.",
   "main": {
-    "title": "Pro Top International Co. Ltd.",
-    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. Nam elit tortor, dignissim eu porta eu, tincidunt id erat. Vestibulum a orci ligula. Nullam volutpat blandit vehicula.",
-    "about": {
-      "title": "About Us",
-      "text1": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris.",
-      "text2": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    "description": "Pro Top International is a Hong Kong-based sourcing and supply chain company specialising in personal care electrical appliances.",
+    "tagline": "Global sourcing & supply chain solutions from Hong Kong",
+    "profile": {
+      "title": "Company Profile",
+      "text1": "Pro Top is a Hong Kong-based company offering global sourcing and supply chain solutions to customers worldwide. With strong experience in customs clearance and government commodity inspections, Pro Top is equipped with exceptional logistics fundamentals and a notable trading history.",
+      "text2": "A branch office in Dongguan enables efficient transportation between Hong Kong and China at the lowest costs. Supplied goods include, but are not limited to, Health & Personal Care and Electrical & Electronics."
     },
+    "highlights": [
+      {
+        "title": "Hong Kong & Dongguan",
+        "text": "Headquartered in Hong Kong with a branch office in Dongguan."
+      },
+      {
+        "title": "Customs & Inspection",
+        "text": "Experienced in customs clearance and government commodity inspections."
+      },
+      {
+        "title": "Efficient Logistics",
+        "text": "Cost-effective transportation between Hong Kong and China."
+      }
+    ],
     "vision": {
       "title": "Our Vision",
-      "text": "Nulla mollis libero sit amet quam lacinia, ut consectetur odio semper. Suspendisse nec velit ut magna venenatis fermentum non vitae libero. Nam tincidunt, dolor et ultrices aliquet, dolor turpis porta ante, ut dictum massa enim ac magna."
+      "text": "We aim to be the connection that bridges imagination with reality — realising the creativity of our customers and bringing it to life, by supplying products of the highest quality and maintaining excellent service."
+    },
+    "services": {
+      "title": "Our Services",
+      "steps": [
+        {
+          "title": "Identify Needs & Match Suppliers",
+          "items": ["Client request", "Supplier selection & financial / quality audits"]
+        },
+        {
+          "title": "Order & Freight Management",
+          "items": ["Order management", "Inspection monitoring", "Logistics"]
+        },
+        {
+          "title": "Follow Up",
+          "items": ["Customer satisfaction", "Continuous improvement approach"]
+        }
+      ]
+    },
+    "cta": {
+      "text": "Looking for a reliable sourcing partner in China?",
+      "button": "Get in touch"
     }
   },
-  "business": {
-    "title": "Business",
-    "intro": "small blurb, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. etc",
-    "instyler": {
-      "text1": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris.",
-      "text2": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    },
-    "bananabros": {
-      "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida placerat mauris, vitae auctor quam dapibus a. Nam elit tortor, dignissim eu porta eu, tincidunt id erat. Vestibulum a orci ligula. Nullam volutpat blandit vehicula.",
-      "text2": "Praesent purus elit, hendrerit vel purus eu, pulvinar mollis felis. Proin ante risus, volutpat a arcu quis, laoreet semper ex. Aenean lacinia sem tortor, id interdum leo sollicitudin imperdiet. Nulla quis tortor mauris."
+  "products": {
+    "title": "Products",
+    "intro": "Over years of operation, we have sourced and manufactured a wide range of personal care products for international brand owners, specialising in electrical hair appliances.",
+    "categories": [
+      {
+        "title": "Hair Styling",
+        "items": ["Curling irons", "Hair straighteners", "Hair dryers", "Hair brushes"]
+      },
+      {
+        "title": "Shave & Trim",
+        "items": ["Facial shavers", "Nose trimmers", "Blades"]
+      },
+      {
+        "title": "Other Personal Care",
+        "items": ["Handy fans", "Herb grinders"]
+      }
+    ],
+    "brands": {
+      "title": "Brands We Work With"
     }
   },
   "contact": {
     "title": "Contact Us",
     "dongGuan": {
-      "title": "Dong guan Office",
-      "address1": "Unit 302 3/F, Sanxing Building",
-      "address2": "Guangchang Road, Zhang Mu Tou Town",
-      "address3": "Dongguan City",
-      "address4": "People's Republic of China",
-      "address5": "Postal Code 523622"
+      "title": "Dongguan Office",
+      "address": [
+        "Unit 302, 3/F, Sanxing Building",
+        "Guangchang Road, Zhangmutou Town",
+        "Dongguan City",
+        "People's Republic of China"
+      ]
     },
     "hongKong": {
       "title": "Hong Kong Office",
-      "address1": "Unit 9 4/F, Sui Ying Industrial Building",
-      "address2": "No. 1 Yuk Yat Street, To Kwa Wan",
-      "address3": "Kowloon",
-      "address4": "Hong Kong",
-      "fax": "(fax)"
+      "address": [
+        "Unit 9, 4/F, Sui Ying Industrial Building",
+        "No. 1 Yuk Yat Street, To Kwa Wan",
+        "Kowloon",
+        "Hong Kong"
+      ]
     },
+    "fax": "(fax)",
     "inquire": {
       "title": "Inquire Now",
       "name": "Name",
@@ -58,9 +105,5 @@
       "success": "Your message has been sent successfully!",
       "error": "There was an error sending your message. Please try again later."
     }
-  },
-  "404": {
-    "title": "501 Not Implemented",
-    "message": "Sorry, page doesn't exist yet! Please come back another time."
   }
 }

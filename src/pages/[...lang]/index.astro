@@ -1,52 +1,90 @@
 ---
-import '../../styles/about.css';
+import '../../styles/home.css';
+
+import {
+  ArrowRight,
+  Building2,
+  ClipboardCheck,
+  Handshake,
+  Package,
+  Truck,
+  Users,
+} from 'lucide-react';
 
 import Banner from '../../components/Banner.astro';
-import { getLangStaticPaths, langFromParam, useTranslations } from '../../i18n';
+import { getLangStaticPaths, langFromParam, localizePath, useTranslations } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = getLangStaticPaths;
 
 const lang = langFromParam(Astro.params.lang);
-const t = useTranslations(lang).main;
+const all = useTranslations(lang);
+const t = all.main;
+const highlightIcons = [Building2, ClipboardCheck, Truck];
+const stepIcons = [Handshake, Package, Users];
 ---
 
 <Layout
   lang={lang}
   title="Protop International | About"
   current="about"
-  description="Protop International Co. Ltd. is a leading company in the industry, providing top-notch services and products."
+  description={t.description}
 >
   <main>
-    <Banner />
-    <div class="centre">
-      <div class="content">
-        <div class="textcontent about">
-          <div class="padding">
-            <h1>{t.title}</h1>
-            <p>{t.intro}</p>
-          </div>
-          <div class="inlineImg">
-            <img src="https://placehold.co/600x400?text=Site+Under+Contruction" alt="" />
-          </div>
-        </div>
-        <div class="textcontent about">
-          <div class="padding">
-            <h2>{t.about.title}</h2>
-            <p>{t.about.text1}</p>
-            <p>{t.about.text2}</p>
-          </div>
-        </div>
-        <div class="textcontent about">
-          <div class="padding">
-            <h2>{t.vision.title}</h2>
-            <p>{t.vision.text}</p>
-          </div>
-          <div class="inlineImg">
-            <img src="https://placehold.co/600x400?text=Site+Under+Contruction" alt="" />
-          </div>
-        </div>
+    <Banner title={all.company} subtitle={t.tagline} />
+
+    <section class="padding textcontent">
+      <h2>{t.profile.title}</h2>
+      <p>{t.profile.text1}</p>
+      <p>{t.profile.text2}</p>
+      <ul class="highlights">
+        {t.highlights.map((h, i) => {
+          const Icon = highlightIcons[i];
+          return (
+            <li>
+              <Icon className="icon" size={40} strokeWidth={1.5} aria-hidden="true" />
+              <h3>{h.title}</h3>
+              <p>{h.text}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="vision">
+      <div class="padding">
+        <h2>{t.vision.title}</h2>
+        <blockquote>{t.vision.text}</blockquote>
       </div>
-    </div>
+    </section>
+
+    <section class="padding textcontent">
+      <h2>{t.services.title}</h2>
+      <ol class="steps">
+        {t.services.steps.map((s, i) => {
+          const Icon = stepIcons[i];
+          return (
+            <li>
+              <span class="step_num">{i + 1}</span>
+              <Icon className="icon" size={36} strokeWidth={1.5} aria-hidden="true" />
+              <h3>{s.title}</h3>
+              <ul>
+                {s.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+
+    <section class="cta padding">
+      <p>{t.cta.text}</p>
+      <a class="button" href={localizePath('/contact', lang)}>
+        {t.cta.button}
+        <ArrowRight size={20} aria-hidden="true" />
+      </a>
+    </section>
   </main>
 </Layout>
