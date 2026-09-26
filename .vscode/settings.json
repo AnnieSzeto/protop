@@ -1,0 +1,14 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript", "typescriptreact", "astro"],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
+}

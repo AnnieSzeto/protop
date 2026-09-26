@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
 * {
   box-sizing: border-box;
@@ -9,11 +9,10 @@
 
 :root {
   scroll-behavior: smooth;
-
 }
 
 body {
-  font-family: "AFACAD FLUX", Calibri, sans-serif;
+  font-family: 'AFACAD FLUX', Calibri, sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 1.4rem;
@@ -79,7 +78,6 @@ h1 {
   max-height: 500px;
   height: calc(15vh + 10vw);
   min-height: 200px;
-
 }
 
 .crop img {
@@ -87,8 +85,8 @@ h1 {
   margin-bottom: -4px;
 }
 
-
-@media (max-width: 1000px) {}
+@media (max-width: 1000px) {
+}
 
 @media (max-width: 700px) {
   .padding {
@@ -104,4 +102,5 @@ h1 {
   }
 }
 
-@media (max-width: 500px) {}
+@media (max-width: 500px) {
+}
