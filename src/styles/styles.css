@@ -109,7 +109,10 @@ h1 {
 
   .crop img,
   .banner_text {
-    animation: linear both;
+    /* longhands, not the `animation` shorthand: the build minifier merges the
+       shorthand with animation-timeline and drops the timeline */
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: --banner;
     animation-range: exit 0% exit 100%;
   }
