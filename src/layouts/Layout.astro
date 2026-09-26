@@ -1,0 +1,49 @@
+---
+import '../styles/styles.css';
+import '../styles/head_foot.css';
+
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header';
+import type { NavKey } from '../components/links';
+import type { Lang } from '../i18n';
+import { stripLang, useTranslations } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  current?: NavKey;
+  description?: string;
+}
+
+const { lang, title, current, description } = Astro.props;
+const t = useTranslations(lang);
+const htmlLang = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant-HK' }[lang];
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="protopintl.com" />
+    {description && <meta name="description" content={description} />}
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://placehold.co/600x600/a91111/white/webp?text=PTI"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header
+      client:load
+      lang={lang}
+      links={t.links}
+      current={current}
+      path={stripLang(Astro.url.pathname)}
+    />
+    <slot />
+    <Footer lang={lang} links={t.links} />
+  </body>
+</html>

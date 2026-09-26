@@ -1,0 +1,82 @@
+---
+import '../../styles/contact.css';
+
+import Banner from '../../components/Banner.astro';
+import ContactForm from '../../components/ContactForm';
+import { getLangStaticPaths, langFromParam, useTranslations } from '../../i18n';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = getLangStaticPaths;
+
+const lang = langFromParam(Astro.params.lang);
+const t = useTranslations(lang).contact;
+---
+
+<Layout lang={lang} title="Protop International | Contact Us" current="contact">
+  <main>
+    <Banner />
+    <div class="padding textcontent">
+      <h1>{t.title}</h1>
+      <div class="locations">
+        <div class="l_card">
+          <div class="l_img">
+            <img src="https://placehold.co/600x400?text=Site+Under+\n+Contruction" alt="" />
+          </div>
+          <div class="address">
+            <h2>{t.dongGuan.title}</h2>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/pin.png" alt="" />
+              <span>{t.dongGuan.address1}</span>
+            </p>
+            <p class="c_tab">{t.dongGuan.address2}</p>
+            <p class="c_tab">{t.dongGuan.address3}</p>
+            <p class="c_tab">{t.dongGuan.address4}</p>
+            <p class="c_tab">{t.dongGuan.address5}</p>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/email.png" alt="" />
+              <span>may@protopintl.com</span>
+            </p>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/phone.png" alt="" />
+              <span>+136 8626 7843</span>
+            </p>
+          </div>
+        </div>
+        <div class="l_card">
+          <div class="l_img">
+            <img src="https://placehold.co/600x400?text=Site+Under+\n+Contruction" alt="" />
+          </div>
+          <div class="address">
+            <h2>{t.hongKong.title}</h2>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/pin.png" alt="" />
+              <span>{t.hongKong.address1}</span>
+            </p>
+            <p class="c_tab">{t.hongKong.address2}</p>
+            <p class="c_tab">{t.hongKong.address3}</p>
+            <p class="c_tab">{t.hongKong.address4}</p>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/email.png" alt="" />
+              <span>randy@protopintl.com</span>
+            </p>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/phone.png" alt="" />
+              <span>+852 2688-0083</span>
+            </p>
+            <p>
+              <img class="inline_icon" src="/images/text_icons/fax.png" alt="" />
+              +852 2688-0031
+              <span>{t.hongKong.fax}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form">
+      <div class="padding">
+        <h2>{t.inquire.title}</h2>
+        <ContactForm client:visible t={t.inquire} />
+      </div>
+    </div>
+  </main>
+</Layout>

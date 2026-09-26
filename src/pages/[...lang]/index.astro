@@ -1,0 +1,52 @@
+---
+import '../../styles/about.css';
+
+import Banner from '../../components/Banner.astro';
+import { getLangStaticPaths, langFromParam, useTranslations } from '../../i18n';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = getLangStaticPaths;
+
+const lang = langFromParam(Astro.params.lang);
+const t = useTranslations(lang).main;
+---
+
+<Layout
+  lang={lang}
+  title="Protop International | About"
+  current="about"
+  description="Protop International Co. Ltd. is a leading company in the industry, providing top-notch services and products."
+>
+  <main>
+    <Banner />
+    <div class="centre">
+      <div class="content">
+        <div class="textcontent about">
+          <div class="padding">
+            <h1>{t.title}</h1>
+            <p>{t.intro}</p>
+          </div>
+          <div class="inlineImg">
+            <img src="https://placehold.co/600x400?text=Site+Under+Contruction" alt="" />
+          </div>
+        </div>
+        <div class="textcontent about">
+          <div class="padding">
+            <h2>{t.about.title}</h2>
+            <p>{t.about.text1}</p>
+            <p>{t.about.text2}</p>
+          </div>
+        </div>
+        <div class="textcontent about">
+          <div class="padding">
+            <h2>{t.vision.title}</h2>
+            <p>{t.vision.text}</p>
+          </div>
+          <div class="inlineImg">
+            <img src="https://placehold.co/600x400?text=Site+Under+Contruction" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

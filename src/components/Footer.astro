@@ -1,0 +1,41 @@
+---
+import type { Lang, Translations } from '../i18n';
+import { localizePath } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  links: Translations['links'];
+}
+
+const { lang, links } = Astro.props;
+---
+
+<footer>
+  <div class="f_proTop">
+    <div class="f_logo">
+      <img src="https://placehold.co/600x600/a81111/white?text=PTI" alt="Protop logo" />
+    </div>
+    <div>
+      <p>Pro Top</p>
+      <p>International Co. Ltd</p>
+    </div>
+  </div>
+  <div class="f_links">
+    <div>
+      <a class="bold" href={localizePath('/', lang)}>
+        {links.about}
+      </a>
+      <a href={localizePath('/contact', lang)}>{links.contact}</a>
+    </div>
+    <div>
+      <a class="bold" href={localizePath('/business', lang)}>
+        {links.business}
+      </a>
+    </div>
+    <div>
+      <a class="bold" href={localizePath('/news', lang)}>
+        {links.news}
+      </a>
+    </div>
+  </div>
+</footer>
