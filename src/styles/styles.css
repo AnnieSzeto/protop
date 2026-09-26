@@ -86,6 +86,7 @@ h1 {
 .crop {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .crop picture {
@@ -97,6 +98,42 @@ h1 {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* parallax: while the banner scrolls out of view the image drifts down, so it
+   appears to move at about half speed; the text lags slightly and fades */
+@supports (animation-timeline: view()) {
+  .crop {
+    view-timeline: --banner block;
+  }
+
+  .crop img,
+  .banner_text {
+    animation: linear both;
+    animation-timeline: --banner;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .crop img {
+    animation-name: banner_parallax;
+  }
+
+  .banner_text {
+    animation-name: banner_text_parallax;
+  }
+}
+
+@keyframes banner_parallax {
+  to {
+    translate: 0 50%;
+  }
+}
+
+@keyframes banner_text_parallax {
+  to {
+    translate: 0 30%;
+    opacity: 0;
+  }
 }
 
 .banner_text {
