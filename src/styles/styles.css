@@ -73,7 +73,7 @@ h1 {
 .padding {
   margin: 0 auto;
   width: 70%;
-  max-width: 1100px;
+  max-width: 1000px;
 }
 
 .textcontent {
@@ -211,4 +211,17 @@ h2 {
 }
 
 @media (max-width: 500px) {
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.reveal.shown {
+  opacity: 1;
+  transform: none;
 }

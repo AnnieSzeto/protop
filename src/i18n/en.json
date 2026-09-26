@@ -6,17 +6,17 @@
   },
   "company": "Pro Top International Co. Ltd.",
   "main": {
-    "description": "Pro Top International is a Hong Kong-based sourcing and supply chain company specialising in personal care electrical appliances.",
+    "description": "Pro Top International is an import & export sourcing company connecting brands worldwide with manufacturers in China, specialising in personal care electrical appliances.",
     "tagline": "Global sourcing & supply chain solutions from Hong Kong",
     "profile": {
       "title": "Company Profile",
-      "text1": "Pro Top is a Hong Kong-based company offering global sourcing and supply chain solutions to customers worldwide. With strong experience in customs clearance and government commodity inspections, Pro Top is equipped with exceptional logistics fundamentals and a notable trading history.",
-      "text2": "A branch office in Dongguan enables efficient transportation between Hong Kong and China at the lowest costs. Supplied goods include, but are not limited to, Health & Personal Care and Electrical & Electronics."
+      "text1": "Pro Top is an import & export company that connects clients with manufacturers in China, acting as their sourcing partner and liaison from first request to final delivery. We serve customers across the United States, Asia and Australia, with strong experience in customs clearance, government commodity inspections and a notable trading history.",
+      "text2": "With offices in both Hong Kong and Dongguan, our team works directly alongside Chinese factories and manages efficient, cost-effective international export to our clients' markets. Supplied goods include, but are not limited to, Health & Personal Care and Electrical & Electronics."
     },
     "highlights": [
       {
         "title": "Hong Kong & Dongguan",
-        "text": "Headquartered in Hong Kong with a branch office in Dongguan."
+        "text": "Two fully staffed offices, working side by side with our partner factories."
       },
       {
         "title": "Customs & Inspection",
@@ -24,7 +24,7 @@
       },
       {
         "title": "Efficient Logistics",
-        "text": "Cost-effective transportation between Hong Kong and China."
+        "text": "Cost-effective international export from China and Hong Kong to markets worldwide."
       }
     ],
     "vision": {

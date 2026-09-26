@@ -64,7 +64,7 @@ LAVOGUE
 
 ## Company Profile
 
-ProTop is a Hong Kong-based company offering global sourcing and supply chain solutions to customers worldwide. With strong experience in customs clearings and government commodity inspections, ProTop is equipped with exceptional logistics fundamentals and a notable trading history. A branch office is set up in Dongguan, enabling efficient transportation between Hong Kong and China at the lowest costs.
+ProTop is an import & export company that connects clients with manufacturers in China, acting as their sourcing partner and liaison from first request to final delivery. We serve customers across the United States, Asia and Australia. With strong experience in customs clearance and government commodity inspections, and a notable trading history, ProTop manages efficient, cost-effective international export from China and Hong Kong to markets worldwide. Our Hong Kong and Dongguan offices are both fully staffed, working side by side with our partner factories.
 
 ProTop is a leading supplier. Supplied goods include, but not limited to Health & Personal Care, Electrical & Electronics.
 

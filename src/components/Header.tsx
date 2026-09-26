@@ -21,7 +21,6 @@ export default function Header({ lang, links, current, path }: Props) {
   const [indicator, setIndicator] = useState<{ left: number; width: number } | null>(null);
   // Only animate the bar after its first placement, so it doesn't slide in on page load.
   const [animateBar, setAnimateBar] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
   // The header persists between pages, so the current-page bar can slide to the new link.
@@ -41,7 +40,12 @@ export default function Header({ lang, links, current, path }: Props) {
   }, [current, lang]);
 
   // Close the mobile menu after navigating.
-  useEffect(() => setNavOpen(false), [current, lang]);
+  const pageKey = `${lang}:${current}`;
+  const [prevPageKey, setPrevPageKey] = useState(pageKey);
+  if (pageKey !== prevPageKey) {
+    setPrevPageKey(pageKey);
+    setNavOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setIsSticky(window.scrollY > 20);
@@ -53,7 +57,8 @@ export default function Header({ lang, links, current, path }: Props) {
   useEffect(() => {
     if (!navOpen) return;
     const onClick = (e: MouseEvent) => {
-      if (!headerRef.current?.contains(e.target as Node)) setNavOpen(false);
+      // Anything outside the menu itself closes it, including the header bar (the toggle handles itself).
+      if (!(e.target as Element).closest('#mobile_menu, #hamburger')) setNavOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setNavOpen(false);
@@ -71,7 +76,7 @@ export default function Header({ lang, links, current, path }: Props) {
   };
 
   return (
-    <div ref={headerRef} className="h_wrapper">
+    <div className="h_wrapper">
       <header id="h_bar" className={isSticky ? 'sticky isSticky' : 'sticky'}>
         <a href={localizePath('/', lang)} className="h_logo">
           <img src="https://placehold.co/600x600/transparent/white?text=PTI" alt="Protop logo" />

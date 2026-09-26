@@ -1,8 +1,8 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-
 import '../styles/styles.css';
 import '../styles/head_foot.css';
+
+import { ClientRouter } from 'astro:transitions';
 
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header';
@@ -50,5 +50,29 @@ const htmlLang = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant-HK' }[lang];
     />
     <slot />
     <Footer lang={lang} links={t.links} />
+    <script>
+      const REVEAL = 'main h2, .highlights > li, .steps > li, .categories > li, .feature, .vision blockquote, .brands li, .l_card, .form, .cta';
+      document.addEventListener('astro:page-load', () => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e, i) => {
+            const el = e.target as HTMLElement;
+            if (e.isIntersecting) {
+              el.style.transitionDelay = `${i * 80}ms`;
+              el.classList.add('shown');
+            } else if (e.boundingClientRect.top > 0) {
+              // reset only once it drops below the viewport, so it replays on the next scroll down
+              el.style.transitionDelay = '0ms';
+              el.classList.remove('shown');
+            }
+          });
+        }, { rootMargin: '0px 0px -10% 0px' });
+        const els = [...document.querySelectorAll(REVEAL)];
+        // skip anything nested inside another block so whole blocks animate, not their contents
+        els.filter((el) => !els.some((p) => p !== el && p.contains(el))).forEach((el) => {
+          el.classList.add('reveal');
+          io.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>
