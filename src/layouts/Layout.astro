@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 import '../styles/styles.css';
 import '../styles/head_foot.css';
 
@@ -21,7 +23,7 @@ const htmlLang = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant-HK' }[lang];
 ---
 
 <!doctype html>
-<html lang={htmlLang}>
+<html lang={htmlLang} transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,10 +36,13 @@ const htmlLang = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant-HK' }[lang];
       href="https://placehold.co/600x600/a91111/white/webp?text=PTI"
     />
     <title>{title}</title>
+    <!-- swap pages in place instead of full reloads; the header persists across pages -->
+    <ClientRouter />
   </head>
   <body>
     <Header
       client:load
+      transition:persist="header"
       lang={lang}
       links={t.links}
       current={current}

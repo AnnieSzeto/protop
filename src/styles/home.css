@@ -22,12 +22,12 @@
 
 .vision {
   background-color: var(--burgundy);
-  color: white;
+  color: var(--white);
   padding: 4rem 0;
   text-align: center;
 
   h2 {
-    color: white;
+    color: var(--white);
   }
 
   blockquote {
@@ -41,7 +41,7 @@
 .steps > li {
   position: relative;
   padding: 2rem;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 10px 0px var(--shadow);
   border-top: 0.3rem solid var(--burgundy);
 
   > h3 {
@@ -71,7 +71,7 @@
   gap: 1.5rem;
   text-align: center;
   padding-top: 4rem;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid var(--border-light);
 }
 
 @media (max-width: 1000px) {

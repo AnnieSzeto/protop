@@ -1,195 +1,340 @@
 /* header */
 
 header {
-  background: linear-gradient(180deg, #a91111b9 0%, #a9111160 65%, #a9111105 100%);
+  background: linear-gradient(
+    90deg,
+    var(--burgundy) 0%,
+    color-mix(in srgb, var(--burgundy) 38%, transparent) 100%
+  );
   height: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s;
+  box-shadow: 0 1px 6px var(--shadow);
+  transition:
+    background-color 0.3s,
+    transform 0.25s ease-in-out;
+  will-change: transform;
 }
 
 .sticky {
-  position: sticky;
-  top: -1px;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+
+  /* blur lives on a pseudo-element so child glass panels can still blur the page */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: backdrop-filter 0.3s;
+  }
 
   &.isSticky {
-    background-color: #a91111b0;
+    background-color: color-mix(in srgb, var(--burgundy) 69%, transparent);
+  }
+
+  &.isSticky::before {
     backdrop-filter: blur(3px);
+  }
+
+  &.h_hidden {
+    transform: translateY(-125%);
   }
 }
 
 .h_options {
   display: flex;
+  align-items: center;
   height: 100%;
 }
 
 .nav {
+  position: relative;
   display: flex;
   height: 100%;
   margin: 0;
 }
 
-nav > a {
+/* hover: faint vertical lines fading in at the link's edges */
+.h_link {
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-image: linear-gradient(
+        transparent,
+        color-mix(in srgb, var(--white) 67%, transparent),
+        transparent
+      )
+      1;
+  }
+}
+
+.nav > a {
   font-weight: 400;
   font-size: 1.3rem;
   padding: 0 0.6rem;
   text-decoration: none;
-  color: #ffffffd0;
+  color: color-mix(in srgb, var(--white) 82%, transparent);
   height: 100%;
-  width: 7rem;
+  min-width: 7rem;
+  white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.2s linear;
+  transition: color 0.2s linear;
 }
 
 .nav > a:hover {
-  font-weight: 450;
-  color: white;
-  text-shadow: #a91111 0 0 20px;
-}
-
-.nav > a:active {
-  border: 3px solid var(--highlight);
-}
-
-select,
-::picker(select) {
-  appearance: base-select;
+  color: var(--white);
+  text-shadow: var(--burgundy) 0 0 20px;
 }
 
 .lang_selector {
-  font-size: 1rem;
-  display: flex;
-  gap: 0.2rem;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
   margin: 0 1.2rem;
 }
 
-.lang_selector > svg {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.lang_selector > select {
+.lang_button {
   display: flex;
   align-items: center;
-  height: 2rem;
-  border-radius: 0;
+  gap: 0.4rem;
+  height: 2.2rem;
+  padding: 0 0.6rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--white);
   background-color: transparent;
-  color: white;
-  border: none;
+  border-radius: 0.4rem;
   cursor: pointer;
-  transition: all 0.2s linear;
+  transition: background-color 0.2s linear;
 }
 
-.lang_selector > select::picker-icon {
-  transition: 0.4s rotate;
+.lang_button:hover,
+.lang_button[aria-expanded='true'] {
+  background-color: color-mix(in srgb, var(--white) 15%, transparent);
 }
 
-.lang_selector > select:open::picker-icon {
-  rotate: 180deg;
+.lang_chevron {
+  transition: rotate 0.3s;
+
+  &.open {
+    rotate: 180deg;
+  }
 }
 
-::picker(select) {
-  border: none;
-  translate: -1.8rem 0;
-  width: 8rem;
-  box-shadow: 0 5px 1rem -0.2rem rgba(0, 0, 0, 0.25);
-}
-
-.lang_selector option {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-
-  background: #f5f5f5;
-  padding: 10px;
-  transition: 0.3s;
-}
-
-.lang_selector option:hover {
-  background: #f39191;
-}
-
-option:checked {
-  font-weight: 500;
-  background: #fcd8d8;
-}
-
-option::checkmark {
-  order: 1;
-  margin-left: auto;
-  content: '🗹';
-}
-
-#nav_container {
-  z-index: 2;
-  outline: none;
-  display: block;
-  position: fixed;
-  top: 0;
-  right: -16rem;
-  height: 100vh;
-  width: 16rem;
-  max-width: 100vw;
-  background-color: #a91111;
-  transition: all 0.1s linear;
-}
-
-#hidden_nav {
+/* glass panel below the header, matching the mobile menu */
+.lang_menu {
+  position: absolute;
+  top: 100%;
+  right: -1rem;
+  min-width: 13rem;
+  list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-  height: 100%;
-  width: 100%;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem 3rem;
+  background-color: color-mix(in srgb, var(--white) 10%, transparent);
+  backdrop-filter: blur(8px);
+  /* fade only within the bottom padding, so the last option stays on full glass */
+  mask: linear-gradient(black calc(100% - 3rem), transparent);
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image: linear-gradient(180deg, transparent 0%, var(--burgundy) 50%, transparent 100%) 1;
+  animation: lang_menu_in 0.25s ease-out;
 
-  > a {
-    height: 4rem;
+  > li {
+    animation: lang_item_in 0.3s ease-out backwards;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     width: 100%;
-    text-align: end;
-    position: relative;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-size: 1.05rem;
+    text-align: left;
+    color: var(--white);
+    background-color: color-mix(in srgb, var(--burgundy) 65%, transparent);
+    border-radius: 0.2rem 0.8rem 0.2rem 0.8rem;
+    box-shadow: 0 2px 8px var(--shadow);
+    cursor: pointer;
+    transition:
+      translate 0.3s,
+      background-color 0.3s;
   }
 
-  > a:hover {
-    background-color: #c93131;
-    color: white;
+  button:hover {
+    translate: -6px -3px;
+  }
+
+  button:hover,
+  li[aria-selected='true'] button {
+    background-color: color-mix(in srgb, var(--burgundy) 95%, transparent);
   }
 }
 
-#hidden_nav:focus {
-  outline: none;
+/* radio-style marker, filled for the current language */
+.lang_radio {
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid color-mix(in srgb, var(--white) 69%, transparent);
+  border-radius: 50%;
+
+  &::before {
+    content: '';
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    scale: 0;
+    transition: scale 0.15s ease-in-out;
+  }
 }
 
-.h_underline {
-  border-bottom: 0.3rem solid #ff5d5d;
+li[aria-selected='true'] .lang_radio {
+  border-color: var(--white);
+
+  &::before {
+    scale: 1;
+  }
+}
+
+@keyframes lang_menu_in {
+  from {
+    opacity: 0;
+    translate: 0 -0.5rem;
+  }
+}
+
+@keyframes lang_item_in {
+  from {
+    opacity: 0;
+    translate: 1.5rem 0;
+  }
+}
+
+/* current-page bar, slides between links (the header persists across pages) */
+.h_indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0.3rem;
   border-radius: 2px;
+  background-color: var(--highlight);
+  pointer-events: none;
+
+  &.animate {
+    transition:
+      translate 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s;
+  }
 }
 
+/* three lines of shrinking width that even out on hover */
 #hamburger {
-  font-size: 1.5rem;
   display: none;
-  width: 3.5rem;
-  cursor: pointer;
-}
-
-.h_nav_close {
-  margin: 2rem;
-  width: 2rem;
-  height: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 3rem;
+  height: 100%;
+  padding: 0.9rem 0.6rem;
   background-color: transparent;
   cursor: pointer;
+
+  > span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--white);
+    transition: width 0.3s;
+  }
+
+  > span:nth-child(1) {
+    width: 100%;
+  }
+
+  > span:nth-child(2) {
+    width: 75%;
+  }
+
+  > span:nth-child(3) {
+    width: 50%;
+  }
+
+  &:hover > span,
+  &.open > span {
+    width: 100%;
+  }
 }
 
-.h_nav_gap {
-  height: 4rem;
-  width: 0;
+/* mobile menu: slides in from the right, items follow one after another */
+#mobile_menu {
+  position: fixed;
+  top: 3.5rem;
+  right: 0;
+  z-index: 49;
+  width: min(100%, 22rem);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 6rem;
+  background-color: color-mix(in srgb, var(--white) 10%, transparent);
+  mask: linear-gradient(black, black, black, transparent);
+  backdrop-filter: blur(8px);
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, transparent 0%, var(--burgundy) 50%, transparent 100%) 1;
+  translate: 100% 0;
+  transition: translate 0.4s ease-out;
+
+  > li {
+    translate: calc(100% + 1rem) 0;
+    transition: translate 0.4s ease-out;
+  }
+
+  a {
+    display: block;
+    padding: 0.5rem 2.5rem;
+    color: var(--white);
+    font-size: 1.3rem;
+    text-align: end;
+    text-decoration: none;
+    background-color: color-mix(in srgb, var(--burgundy) 65%, transparent);
+    border-radius: 0.2rem 0.8rem 0.2rem 0.8rem;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition:
+      translate 0.3s,
+      background-color 0.3s;
+  }
+
+  a:hover,
+  a:active,
+  a.current {
+    background-color: color-mix(in srgb, var(--burgundy) 95%, transparent);
+  }
+
+  a:hover {
+    translate: -10px -5px;
+  }
+
+  &.open,
+  &.open > li {
+    translate: 0 0;
+  }
 }
 
 .h_logo {
@@ -206,20 +351,9 @@ option::checkmark {
   }
 }
 
-#darker {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  height: 100vh;
-  width: 90vw;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: none;
-}
-
 /* footer */
 footer {
-  background-color: rgb(248, 248, 248);
+  background-color: var(--grey-bg);
   padding: 5rem 2rem 8rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -228,7 +362,7 @@ footer {
 .f_links {
   width: 60%;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   gap: 1rem 2rem;
   margin: 0 0rem 3rem 5rem;
 }
@@ -241,7 +375,7 @@ footer {
 .f_links > div > a {
   text-decoration: none;
   line-height: 1.6;
-  color: rgb(80, 80, 80);
+  color: var(--text-muted);
   font-size: 1.5rem;
 }
 
@@ -279,7 +413,7 @@ footer {
 }
 
 @media (max-width: 750px) {
-  .nav > a:not(:first-child) {
+  .nav {
     display: none;
   }
 
@@ -287,8 +421,8 @@ footer {
     display: flex;
   }
 
-  header {
-    background: linear-gradient(90deg, #a91111 0%, #a9111160 100%);
+  .lang_button > span {
+    display: none;
   }
 }
 
